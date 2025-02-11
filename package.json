@@ -4,8 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon main.js",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "dev": "nodemon main.js",
+    "start": "node main.js"
   },
   "author": "",
   "license": "ISC",
