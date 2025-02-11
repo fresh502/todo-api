@@ -32,4 +32,27 @@ app.get("/tasks/:id", async (req, res) => {
   }
 });
 
+app.patch("/tasks/:id", async (req, res) => {
+  const task = await Task.findById(req.params.id);
+  if (task) {
+    const data = req.body;
+    Object.keys(data).forEach((key) => {
+      task[key] = data[key];
+    });
+    await task.save();
+    res.send(task);
+  } else {
+    res.status(404).send({ message: "Cannot find given id" });
+  }
+});
+
+app.delete("/tasks/:id", async (req, res) => {
+  const task = await Task.findByIdAndDelete(req.params.id);
+  if (task) {
+    res.sendStatus(200);
+  } else {
+    res.status(404).send({ messsage: "Cannot find given id" });
+  }
+});
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
