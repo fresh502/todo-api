@@ -6,3 +6,9 @@ Content-Type: application/json
   "title": "Express",
   "description": "Express를 활용해 내 로컬에서 웹 서버 구동" 
 }
+
+###
+GET http://localhost:3000/tasks?count=2
+
+###
+GET http://localhost:3000/tasks/67aacf67794bc24cee8df779
