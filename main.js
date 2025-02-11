@@ -25,6 +25,13 @@ function asyncHandler(handler) {
   };
 }
 
+app.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    res.status(200).send("Hello world");
+  })
+);
+
 app.post(
   "/tasks",
   asyncHandler(async (req, res) => {
